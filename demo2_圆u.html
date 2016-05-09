@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+//		ctx.fillStyle = "#f66";
+//		ctx.arc(100,100,50,0,Math.PI*2,true);
+//		ctx.fill();
+		
+		ctx.fillStyle = "#f66";
+		ctx.arc(100,100,50,0,Math.PI*1/2,false);
+		ctx.fill();
+		
+		ctx.fillStyle = "skyblue";
+		ctx.arc(100,100,50,Math.PI,Math.PI*3/2,false);
+		ctx.fill();
+	</script>
+</html>

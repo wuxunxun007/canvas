@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		var cw = 370;
+		var ch = 282;
+		var w = 20;
+		var h = 20;
+		var dirX = 0;//0表示向右
+		var dirY = 0;//0表示向下
+		
+		var x = 5;
+		var y = 5;
+		
+		var step = 3;
+		
+		var timer = "";
+		timer = setInterval(function(){
+			draw(ctx)
+		},10);
+		draw(ctx)
+		function draw(ctx){
+			with(ctx){
+				fillStyle = "#eeeeee";
+				fillRect(5,5,cw,ch);
+				
+				fillStyle = "red";
+				fillRect(x,y,w,h);
+			}
+			
+			if(dirY == 0){
+				if(y > ch - h){
+					y -= step;
+					dirY = 1;
+				}else{
+						y += step;
+				}
+				
+			}else{
+				if(y < 0){
+					y += step;
+					dirY = 0;
+				}else{
+					y -= step;
+				}
+			}
+			
+				if(dirX == 0){
+				if(x > cw - w){
+					x -= step;
+					dirX = 1;
+				}else{
+						x += step;
+				}
+				
+			}else{
+				if(x < 0){
+					x += step;
+					dirX = 0;
+				}else{
+					x -= step;
+				}
+			}
+			/*x++;
+			y++;*/
+			
+		}
+	</script>
+</html>

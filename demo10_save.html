@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		with (ctx){
+			fillStyle = "red";
+			save();
+			
+			fillStyle = "blue";
+			restore();
+			fillRect(0,0,100,100);
+		}
+		 var w=window.open(canvas.toDataURL("image/jpeg"),"smallwin","width=400,height=350");
+	</script>
+</html>

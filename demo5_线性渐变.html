@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500">
+			<div style="position: absolute; top: 10px; left: 10px; width: 100px; height: 100px; border: 1px solid rgb(0, 0, 255);"></div>
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		with (ctx){
+			var lg = createLinearGradient(0,0,300,300);
+			lg.addColorStop(0,"red");
+//			lg.addColorStop(0.8,"#fff");
+			lg.addColorStop(1,"blue");
+			fillStyle = "#fff";
+			strokeStyle = lg;
+//			fillRect(0,0,400,200);
+			strokeRect(10,10,300,300);
+			fillRect(10,10,300,300);
+		}
+		
+		
+		
+	</script>
+</html>

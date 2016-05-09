@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		var cw = 401;
+		var ch = 301;
+		var sx = 20;
+		var sy = 20;
+		var sw = 20;
+		var sh = 20;
+		//背景色
+		var bg = "#eee";
+		var sbg = "#f66";
+		//移动的速度
+		var speed = 5;
+		//标识运动的方向
+		var dirX = 0;
+		var dirY = 0;
+		setInterval(function(){
+			draw();
+			
+		},20);
+		function draw(){
+			ctx.fillStyle = bg;
+			ctx.fillRect(20,20,cw,ch);
+			
+			with (ctx){
+				fillStyle = sbg;
+				fillRect(sx,sy,sw,sh);
+				
+				if(dirX == 0){
+					sx += speed;
+					if(sx >= cw){
+						dirX = 1;
+					}
+				}else{
+					sx -= speed;
+					if(sx < 20){
+						dirX = 0;
+					}
+				}
+				if(dirY == 0){
+					sy += speed;
+					if(sy >= ch){
+						dirY = 1;
+					}
+				}else{
+					sy -= speed;
+					if(sy < 20){
+						dirY = 0;
+					}
+				}
+				
+				
+				
+//				sy += speed;
+			}
+		}
+		
+	</script>
+</html>

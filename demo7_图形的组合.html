@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>
+	</body>
+	<script type="text/javascript">
+//		在绘制完成第一个图形之后，加
+//	 context.globalCompositeOperation=type
+//	 再接着绘制第二个图形
+//	 type：
+//	source-over（默认值）:在原有图形上绘制新图形
+//	destination-over:在原有图形下绘制新图形
+//	source-in:显示原有图形和新图形的交集，新图形在上，所以颜色为新图形的颜色
+//	destination-in:显示原有图形和新图形的交集，原有图形在上，所以颜色为原有图形的颜色
+//	source-out:只显示新图形非交集部分
+//	destination-out:只显示原有图形非交集部分,是将交集的部分转化为透明
+//	source-atop:显示原有图形和交集部分，新图形在上，所以交集部分的颜色为新图形的颜色
+//	destination-atop:显示新图形和交集部分，新图形在下，所以交集部分的颜色为原有图形的颜色
+//	lighter:原有图形和新图形都显示，交集部分做颜色叠加
+//	xor:重叠飞部分不现实
+//	copy:只显示新图形
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		setInterval(function(){
+			draw();
+		},500);
+		
+		var arr = ["source-over","destination-over","source-in","destination-in","source-out","destination-out","source-atop","destination-atop","lighter","xor","copy"]
+		var len = arr.length;
+		function draw(){
+			var index = Math.floor(Math.random()*len);
+			console.log(index);
+			with (ctx){
+				clearRect(40,40,200,200);
+				beginPath();
+				fillStyle = "red";
+				fillRect(50,50,100,100);
+				closePath();
+				
+				globalCompositeOperation = arr[0];
+				
+				beginPath();
+				fillStyle = "#00f";
+				arc(150,150,50,0,Math.PI*2,true);
+				fill();
+				closePath();
+			}
+		}
+
+
+	</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+		</style>
+	</head>
+	<body>
+		<input type="file" name="file" id="file" accept="image/*" value="" />
+		<input type="button" name="btn" id="btn" value="获取文件" />
+		<p id="msg"></p>
+		<canvas id="canvas" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		var msg = document.getElementById("msg")
+		
+		btn.onclick = function(){
+			var file = document.getElementById("file").files[0];
+			var render = new FileReader();
+			render.readAsDataURL(file);
+			render.onload = function(){
+//				alert(this.result);
+				var url = this.result;
+				
+				msg.innerHTML = '<img src="'+url+'"  style="width:100px;"/>';
+				
+				var img = new Image();
+					img.src = url;
+					img.onload = function(){
+			//			ctx.drawImage(img,0,0);//绘制图像
+			//			ctx.drawImage(img,0,0,200,100);//绘制了图像，并且可能会不等比例（w/h）压缩或者放大图片
+						ctx.drawImage(img,566,92,266,222,0,0,490,490);
+					}
+				
+				
+				
+				
+			}
+			
+			
+			
+			
+		}
+	
+	
+	
+	
+	
+	
+	
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		
+		
+	</script>
+</html>
